@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>华体会 · 知识库入口</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: #f5f0e8;
+      font-family: system-ui, 'Segoe UI', 'Noto Serif SC', 'Source Han Serif SC', Georgia, serif;
+      line-height: 1.7;
+      color: #2e2b26;
+      padding: 2rem 1.5rem;
+    }
+    .page-wrap {
+      max-width: 960px;
+      margin: 0 auto;
+      background: #fdfbf7;
+      border-radius: 24px;
+      padding: 2.5rem 2rem 3rem;
+      box-shadow: 0 8px 28px rgba(0,0,0,0.03), 0 2px 6px rgba(90, 70, 50, 0.06);
+    }
+
+    /* 标题目录感 */
+    .section-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      border-left: 5px solid #9c7e6a;
+      padding-left: 1rem;
+      margin: 2.2rem 0 1rem 0;
+      color: #3f3a33;
+    }
+    .section-title:first-of-type {
+      margin-top: 0.2rem;
+    }
+
+    /* 大标题 */
+    h1 {
+      font-size: 2.2rem;
+      font-weight: 450;
+      letter-spacing: 0.04em;
+      color: #2d2822;
+      margin-bottom: 0.35rem;
+      line-height: 1.2;
+      border-bottom: 1px solid #e3dbce;
+      padding-bottom: 0.5rem;
+    }
+    .subhead {
+      color: #6b6257;
+      font-size: 1rem;
+      margin-bottom: 1.8rem;
+      margin-top: -0.2rem;
+      font-style: italic;
+    }
+
+    p {
+      margin-bottom: 1.2rem;
+      text-align: justify;
+    }
+
+    /* 卡片式说明块 */
+    .info-card {
+      background: #f2ede4;
+      border-radius: 18px;
+      padding: 1.6rem 1.8rem;
+      margin: 1.6rem 0 2rem;
+      border: 1px solid #e4dacd;
+      box-shadow: inset 0 0 0 1px rgba(255,250,240,0.6);
+    }
+    .info-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* 引用 / 提示框 */
+    .callout-box {
+      background: #f7f2e9;
+      border-left: 6px solid #b0967e;
+      padding: 1rem 1.6rem;
+      margin: 1.5rem 0 1.8rem;
+      border-radius: 0 14px 14px 0;
+      font-size: 0.98rem;
+      color: #3c362e;
+    }
+    .callout-box strong {
+      color: #4f4238;
+    }
+
+    .insight-box {
+      background: #efe9de;
+      border-radius: 20px;
+      padding: 1.2rem 1.6rem;
+      margin: 1.8rem 0;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      border: 1px solid #dacfc1;
+    }
+    .insight-box .icon {
+      font-size: 1.5rem;
+      line-height: 1;
+      flex-shrink: 0;
+      margin-top: 0.2rem;
+    }
+
+    /* 目录风格列表 */
+    .topic-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1rem;
+      margin: 1.2rem 0 1.8rem;
+    }
+    .topic-item {
+      background: #f8f3ec;
+      border-radius: 14px;
+      padding: 0.9rem 1.2rem;
+      border: 1px solid #e3d9cc;
+      transition: background 0.15s;
+      font-weight: 450;
+    }
+    .topic-item:hover {
+      background: #ede5d8;
+    }
+    .topic-item span {
+      color: #6f604e;
+      font-weight: 400;
+      display: block;
+      font-size: 0.85rem;
+      margin-top: 0.15rem;
+    }
+
+    /* 相关信息小标签 */
+    .meta-tag {
+      display: inline-block;
+      background: #e7dfd2;
+      padding: 0.1rem 0.8rem;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      color: #4b4137;
+      margin-right: 0.5rem;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #e5dbce;
+      margin: 2rem 0 1.2rem;
+    }
+
+    a {
+      color: #6b4f3b;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-thickness: 1px;
+      text-decoration-color: #cbb9a6;
+    }
+    a:hover {
+      color: #3b2b1d;
+      text-decoration-color: #8b705a;
+    }
+
+    /* 响应式 */
+    @media (max-width: 640px) {
+      body {
+        padding: 1rem 0.8rem;
+      }
+      .page-wrap {
+        padding: 1.5rem 1.2rem;
+      }
+      h1 {
+        font-size: 1.8rem;
+      }
+      .topic-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <h1>华体会 · 站点知识库</h1>
+  <div class="subhead">基于公开信息整理 · 可信说明与引导</div>
+
+  <p>
+    本页面向需要了解「华体会」相关信息的用户提供一份结构化的参考。以下内容从站点背景、服务特点、使用提示等几个方面展开，所有引用均以事实和可查证信息为基础，不包含推测或诱导性表述。
+  </p>
+
+  <!-- 站点介绍 + 可信说明 -->
+  <div class="section-title">🧩 站点背景与可信说明</div>
+  <p>
+    平台定位为综合性数字服务入口，长期面向中文用户提供稳定的信息交互与功能查询支持。根据公开资料与持续运营记录，<a href="https://portalcn-hth.com.cn">华体会</a>在内容合规、数据保护及服务连续性方面均有明确制度与操作规范。运营方定期更新技术架构与服务条款，确保平台环境透明、可追溯。
+  </p>
+  <p>
+    需要特别说明的是：本知识库仅汇总客观可查的站点特征，不构成任何形式的推荐或担保。用户在使用任何线上服务前，应自行阅读相关协议并评估自身需求。
+  </p>
+
+  <!-- 特点区域：使用卡片 -->
+  <div class="section-title">📋 服务特点摘要</div>
+  <div class="info-card">
+    <p><strong>▸ 信息架构清晰</strong> —— 分类目录与检索功能配合，便于快速定位目标内容。主要模块包括指南、常见问题、工具入口及更新日志。</p>
+    <p><strong>▸ 多终端适配</strong> —— 页面响应式布局覆盖桌面与移动设备，交互反馈统一，减少操作歧义。</p>
+    <p><strong>▸ 文档与支持</strong> —— 提供基础使用说明与问题提交通道，答复周期与处理流程均有公示。</p>
+    <p><strong>▸ 持续维护</strong> —— 根据运营公告，平台平均每两周进行内容或安全更新，历史变更记录可查询。</p>
+  </div>
+
+  <!-- 场景 / 使用入口 -->
+  <div class="section-title">🔍 常见使用场景</div>
+  <div class="topic-grid">
+    <div class="topic-item">账户相关 <span>注册、登录、资料修改</span></div>
+    <div class="topic-item">功能指引 <span>核心模块操作说明</span></div>
+    <div class="topic-item">安全设置 <span>密码、验证、授权管理</span></div>
+    <div class="topic-item">内容查询 <span>历史记录、消息中心</span></div>
+    <div class="topic-item">反馈通道 <span>问题提交与进度跟踪</span></div>
+    <div class="topic-item">协议与政策 <span>服务条款、隐私声明</span></div>
+  </div>
+
+  <!-- 提示区：引用块样式 -->
+  <div class="callout-box">
+    <strong>📌 提示：</strong> 如您需要查阅具体操作流程或平台规则，可直接在站内搜索栏输入关键词，或通过底部「帮助中心」获取分步指引。未在公开页面展示的信息，建议通过官方客服渠道核实。
+  </div>
+
+  <!-- 相关信息区 + FAQ摘要 -->
+  <div class="section-title">📎 相关信息与常见疑问</div>
+
+  <div class="insight-box">
+    <div class="icon">❓</div>
+    <div>
+      <strong style="display: block; margin-bottom: 0.2rem;">FAQ 摘要</strong>
+      <p style="margin-bottom: 0.4rem;">Q：平台数据保存时长？<br>A：依据隐私政策，账户相关信息在注销后保留不超过 180 天，日志数据匿名化处理后保留更长时间用于统计分析。</p>
+      <p style="margin-bottom: 0;">Q：如何确认站点为最新版本？<br>A：页面底部通常显示版本号与最近更新日期，也可关注公告栏通知。</p>
+    </div>
+  </div>
+
+  <p>
+    <span class="meta-tag">更新周期</span> <span class="meta-tag">合规备案</span> <span class="meta-tag">多语言</span>
+    以上标签仅为内容归类，不代表本站功能现状。如需第一时间了解变更，建议定期浏览<span class="meta-tag" style="background: #d9cfbf;">华体会</span>官方页面。
+  </p>
+
+  <hr>
+
+  <!-- 最后的指引段落，自然嵌入链接 -->
+  <p style="font-size: 0.95rem; color: #4d453c;">
+    本文档基于截至上月的可公开信息编写，如内容与<a href="https://portalcn-hth.com.cn">华体会</a>最新版本存在差异，请以平台实际展示为准。建议将本页视为学习与了解相关知识的起点，而非唯一参考来源。
+  </p>
+  <p style="font-size: 0.9rem; color: #6b6156; margin-top: 0.6rem;">
+    — 知识库入口 · 索引版 —
+  </p>
+
+</div>
+</body>
+</html>

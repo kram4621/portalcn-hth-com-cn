@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://kram4621.github.io/portalcn-hth-com-cn/sitemap.xml
