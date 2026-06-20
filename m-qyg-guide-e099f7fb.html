@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>奇异果体育 · 再次遇见</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #f3f7fc;
+            color: #1a2c3e;
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .container {
+            max-width: 1120px;
+            width: 100%;
+            margin: 30px auto;
+        }
+
+        /* 主视觉 / hero */
+        .hero {
+            background: linear-gradient(145deg, #0b2b3f 0%, #1b4b5e 100%);
+            border-radius: 28px;
+            padding: 48px 36px;
+            margin-bottom: 40px;
+            color: #e6f3f0;
+            box-shadow: 0 12px 30px rgba(0, 40, 50, 0.16);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -40px;
+            right: -40px;
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            background: rgba(80, 180, 170, 0.10);
+            pointer-events: none;
+        }
+
+        .hero h1 {
+            font-size: 2.4rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            margin-bottom: 12px;
+        }
+
+        .hero .sub {
+            font-size: 1.1rem;
+            opacity: 0.8;
+            max-width: 620px;
+            border-left: 3px solid #50c2b0;
+            padding-left: 18px;
+            margin: 16px 0 8px;
+        }
+
+        .hero p {
+            max-width: 600px;
+            font-size: 1rem;
+            opacity: 0.75;
+            margin-top: 12px;
+        }
+
+        /* 网格卡片区 */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 22px;
+            padding: 28px 24px 30px;
+            box-shadow: 0 6px 14px rgba(0, 40, 40, 0.04);
+            transition: all 0.2s ease;
+            border: 1px solid #e0edee;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 14px 28px rgba(0, 70, 80, 0.06);
+            border-color: #add6ce;
+        }
+
+        .card .icon {
+            font-size: 2.2rem;
+            line-height: 1;
+            margin-bottom: 6px;
+            color: #1f796e;
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin: 8px 0 12px;
+            color: #0a2d3a;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: #2b4a55;
+            margin-bottom: 6px;
+        }
+
+        .card .tag {
+            display: inline-block;
+            background: #e3f5f0;
+            padding: 3px 14px;
+            border-radius: 30px;
+            font-size: 0.75rem;
+            color: #0a5f55;
+            margin-top: 12px;
+            font-weight: 500;
+        }
+
+        /* 自然链接段落 */
+        .narrative-section {
+            background: #ffffffde;
+            backdrop-filter: blur(2px);
+            border-radius: 26px;
+            padding: 36px 32px;
+            margin-bottom: 40px;
+            border: 1px solid #cfe2df;
+            box-shadow: 0 2px 12px rgba(0, 40, 40, 0.03);
+        }
+
+        .narrative-section p {
+            margin-bottom: 1.2em;
+            font-size: 1.02rem;
+            color: #1f3b44;
+        }
+
+        .narrative-section .highlight-link {
+            color: #0e6b5c;
+            font-weight: 500;
+            text-decoration: none;
+            border-bottom: 2px solid #82c9bb;
+            transition: border-color 0.2s;
+        }
+
+        .narrative-section .highlight-link:hover {
+            border-bottom-color: #0a4d42;
+        }
+
+        /* FAQ 摘要块 (简洁) */
+        .faq-mini {
+            background: #edf5f2;
+            border-radius: 24px;
+            padding: 28px 30px;
+            margin-bottom: 40px;
+            border-left: 6px solid #318d7e;
+        }
+
+        .faq-mini h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #0b2f38;
+            margin-bottom: 10px;
+        }
+
+        .faq-mini ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .faq-mini li {
+            padding: 10px 0;
+            border-bottom: 1px solid #d4e2dd;
+            font-size: 0.95rem;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .faq-mini li:last-child {
+            border-bottom: 0;
+        }
+
+        .faq-mini .q {
+            font-weight: 500;
+            min-width: 100px;
+            color: #0a4039;
+        }
+
+        .faq-mini .a {
+            color: #2b5550;
+        }
+
+        .footer-note {
+            text-align: center;
+            font-size: 0.85rem;
+            color: #67858a;
+            padding: 20px 10px 10px;
+            border-top: 1px solid #d7e3df;
+        }
+
+        /* 响应式 */
+        @media (max-width: 680px) {
+            body {
+                padding: 12px;
+            }
+
+            .hero {
+                padding: 32px 22px;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .card-grid {
+                gap: 16px;
+            }
+
+            .card {
+                padding: 22px 18px;
+            }
+
+            .narrative-section {
+                padding: 24px 18px;
+            }
+
+            .faq-mini {
+                padding: 20px 18px;
+            }
+
+            .faq-mini li {
+                flex-direction: column;
+                gap: 4px;
+            }
+        }
+
+        @media (max-width: 440px) {
+            .hero .sub {
+                font-size: 0.95rem;
+                padding-left: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- 主视觉 -->
+    <div class="hero">
+        <h1>奇异果体育 · 收藏此时</h1>
+        <div class="sub">有些页面值得反复回来，像翻开一本旧杂志的折角处。</div>
+        <p>有时仅仅是熟悉的界面、稳定的更新，就让人愿意再次打开。<br>下一次访问，或许比想象中来得更快。</p>
+    </div>
+
+    <!-- 信息卡片网格：用途 / 场景 / 适合人群 -->
+    <div class="card-grid">
+        <div class="card">
+            <div class="icon">🏸</div>
+            <h3>浏览赛况与资讯</h3>
+            <p>从赛事集锦到深度分析，内容围绕体育动态持续更新。适合习惯在碎片时间里瞥一眼比分或回顾战报的人。</p>
+            <span class="tag">日常查看</span>
+        </div>
+        <div class="card">
+            <div class="icon">📌</div>
+            <h3>关注特定联赛</h3>
+            <p>不必追逐所有比赛，只盯住自己关心的联赛或队伍。榜单、赛程与关键数据，页面结构让信息一目了然。</p>
+            <span class="tag">聚焦选择</span>
+        </div>
+        <div class="card">
+            <div class="icon">🔄</div>
+            <h3>再次回访的理由</h3>
+            <p>收藏夹里的链接有时会蒙尘，但一个体验流畅、内容迭代的站点总会让人想再逛一逛。新的板块和调整，总在下次打开时被发现。</p>
+            <span class="tag">常看常新</span>
+        </div>
+    </div>
+
+    <!-- 自然链接段落 (嵌入 a 标签) -->
+    <div class="narrative-section">
+        <p>年初的时候，我把一个链接拖进了浏览器收藏栏，位置就在书签菜单的第一排。后来每次清理收藏夹，目光都会经过它——有时点进去看一眼，有时只是划过。直到某个周末，我认真翻了翻里面的栏目，才察觉它比印象中丰富了不少。那个链接就是 <a class="highlight-link" href="https://m-qyg-sports.com">奇异果体育</a> ——一个名字听起来有点像水果，但内容确实在持续生长的体育信息聚合处。</p>
+        <p>我习惯于把那些“可能还会用上”的页面存在收藏夹深处，但半个月前整理时发现，真正反复回去的并不多。奇异果体育是其中一个。没有太多花哨的引导，每次打开就是干净的版面、更新的赛况、还有一些我还没来得及看的专题。收藏它，像是给未来的自己留了一个入口，不用费力寻找，直接就能回到熟悉的地方。</p>
+        <p>前几天推荐给同事，他问我“这个站点有什么特别的”，我想了想回答：它不吵，内容更新得勤，而且每次打开都保留着上次离开时的直觉体验。对于经常忘记密码的人来说，记得住一个链接就够了。</p>
+    </div>
+
+    <!-- FAQ 摘要 / 提示块 -->
+    <div class="faq-mini">
+        <h4>一些零碎但有用的事</h4>
+        <ul>
+            <li><span class="q">为什么值得收藏？</span><span class="a">体育资讯类站点更新快，放一个在书签里，省去每天搜索的时间。</span></li>
+            <li><span class="q">适合哪些人？</span><span class="a">习惯手机浏览、不想装太多 app 的体育爱好者，以及喜欢简洁页面的人。</span></li>
+            <li><span class="q">会频繁改版吗？</span><span class="a">布局相对稳定，偶尔增加栏目或调整导航，不会让老用户感到陌生。</span></li>
+            <li><span class="q">记住这个站点</span><span class="a">无论是在浏览器收藏夹还是在笔记里记下一行字，都算一种温柔的提醒。</span></li>
+        </ul>
+    </div>
+
+    <!-- 底部 -->
+    <div class="footer-note">
+        <span>奇异果体育 · 一份来自收藏夹的问候</span>
+    </div>
+</div>
+</body>
+</html>
