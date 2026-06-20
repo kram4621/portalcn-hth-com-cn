@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱游戏app · 游戏体验新视角</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #1e2a3a;
+            line-height: 1.7;
+            background: #f7f9fc;
+        }
+
+        /* ---- Hero (深色头图) ---- */
+        .hero {
+            background: linear-gradient(145deg, #0b1828 0%, #132639 100%);
+            padding: 5rem 1.5rem 4.5rem;
+            text-align: center;
+            color: #e7edf5;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle at 30% 60%, rgba(74, 144, 226, 0.12), transparent 70%);
+            top: -60px;
+            right: -50px;
+            pointer-events: none;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 1.6rem;
+            color: #b8cbd9;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.07);
+            padding: 0.4rem 1.2rem;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: #c4d7e8;
+        }
+
+        /* ---- 通用容器 ---- */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        section {
+            padding: 3.5rem 0;
+        }
+
+        /* ---- 优势区 (卡片网格) ---- */
+        .advantages {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+
+        .advantage-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem 1.6rem 1.8rem;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+            transition: transform 0.2s ease, box-shadow 0.2s;
+            border: 1px solid #eef2f6;
+        }
+
+        .advantage-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 28px rgba(0, 20, 50, 0.08);
+        }
+
+        .advantage-card h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #0a1a2b;
+        }
+
+        .advantage-card p {
+            font-size: 0.95rem;
+            color: #3d4e62;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            letter-spacing: -0.01em;
+            color: #0d1f32;
+        }
+
+        /* ---- 说明区 (图文分离/段落) ---- */
+        .explain-block {
+            background: white;
+            border-radius: 24px;
+            padding: 2.5rem 2.4rem;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.02);
+            border: 1px solid #e6ecf2;
+        }
+
+        .explain-block p {
+            margin-bottom: 1.5rem;
+            max-width: 780px;
+        }
+
+        .explain-highlight {
+            border-left: 4px solid #2c7be5;
+            padding-left: 1.2rem;
+            color: #1f3449;
+            font-style: normal;
+            background: #f1f6fd;
+            border-radius: 0 8px 8px 0;
+            padding: 1rem 1.5rem;
+            margin: 1.8rem 0;
+        }
+
+        /* ---- FAQ 摘要 ---- */
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.6rem;
+        }
+
+        .faq-item {
+            background: white;
+            padding: 1.6rem 1.8rem;
+            border-radius: 18px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+            border: 1px solid #e5ecf3;
+        }
+
+        .faq-item h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #0b1d2f;
+        }
+
+        .faq-item p {
+            font-size: 0.9rem;
+            color: #42576c;
+        }
+
+        /* ---- 底部链接区 ---- */
+        .bottom-links {
+            background: white;
+            border-top: 1px solid #dce4ed;
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+        }
+
+        .bottom-links .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: baseline;
+            gap: 1.2rem 2rem;
+        }
+
+        .bottom-links a {
+            color: #1e5ba6;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.15s;
+        }
+
+        .bottom-links a:hover {
+            border-bottom-color: #1e5ba6;
+        }
+
+        .bottom-links .key-link {
+            color: #194a88;
+            font-weight: 600;
+            font-size: 1.05rem;
+        }
+
+        .bottom-note {
+            margin-top: 1.2rem;
+            font-size: 0.9rem;
+            color: #5d748b;
+        }
+
+        /* 强调色用于链接 (正文中) */
+        .content a {
+            color: #1a5ba7;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-color: #b3cbe9;
+        }
+
+        .content a:hover {
+            text-decoration-color: #1a5ba7;
+        }
+
+        hr {
+            border: none;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #cdd8e5, transparent);
+            margin: 0.8rem 0 2rem;
+        }
+
+        /* ---- 响应式 ---- */
+        @media (max-width: 640px) {
+            .hero h1 { font-size: 2.2rem; }
+            .hero p { font-size: 1rem; }
+            .section-title { font-size: 1.7rem; }
+            .explain-block { padding: 1.8rem 1.2rem; }
+            .advantages { gap: 1.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero 区 -->
+    <header class="hero">
+        <div class="container">
+            <span class="hero-badge">游戏 · 信息 · 探索</span>
+            <h1>爱游戏app · 不止于打开</h1>
+            <p>整理游戏内容的另一种方式，将发现、讨论与简单指引汇集在一处。没有喧哗，只有实用的信息层。</p>
+        </div>
+    </header>
+
+    <!-- 优势区 -->
+    <section>
+        <div class="container">
+            <h2 class="section-title">为什么留意这里</h2>
+            <div class="advantages">
+                <div class="advantage-card">
+                    <h3>内容结构化</h3>
+                    <p>以主题为线索整合信息，避免信息过载。每一块内容都经过梳理，方便你快速定位感兴趣的部分。</p>
+                </div>
+                <div class="advantage-card">
+                    <h3>低噪点体验</h3>
+                    <p>克制使用弹窗、浮层与自动播放，把注意力留给真正重要的事情：阅读与选择。</p>
+                </div>
+                <div class="advantage-card">
+                    <h3>持续迭代</h3>
+                    <p>页面并非一成不变，会根据实际反馈调整内容结构和呈现方式，让信息更贴合使用习惯。</p>
+                </div>
+                <div class="advantage-card">
+                    <h3>多场景适配</h3>
+                    <p>从手机到桌面，从深色到浅色，版式保持整洁。不依赖特定设备，随时可以浏览。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 说明区 (更详细切入) -->
+    <section>
+        <div class="container explain-block content">
+            <h2 class="section-title" style="margin-top:0;">关于「爱游戏app」的信息思路</h2>
+            <p>很多游戏相关页面倾向于堆叠列表、评分和跳转链接，但信息之间往往缺少关联。这个页面试着换一种方式——以主题为轴，把游戏背景、常见疑问、版本特点等内容组合成易读的短文段落。比如，当你对某款游戏的更新内容或玩法细节产生好奇时，这里会提供经过整理的摘要，而不是零散的碎片。</p>
+            <p>在整理过程中，我们注重区分“观点”与“事实”，避免把个人评价包装成客观描述。每一条信息都标明适用版本或上下文，减少误解。对于一些常见的重复问题，也单独做了简短解答（见下方 FAQ 摘要）。</p>
+            <div class="explain-highlight">
+                <strong>一个例子：</strong> 如果你在查找关于游戏机制与版本变化的内容，可以直接在 <a href="https://index-app-aiyouxi.com">爱游戏app</a> 中找到按功能归类的说明，而不是淹没在论坛的楼层里。信息组织方式偏向平实，没有夸张标签，也不诱导点击。
+            </div>
+            <p>当然，这个页面本身也是一个实验——尝试在游戏领域里做更安静、更结构化的信息呈现。未来可能会根据大家的反馈调整章节顺序或增加新的主题卡片。</p>
+        </div>
+    </section>
+
+    <!-- FAQ 摘要 (简洁版) -->
+    <section>
+        <div class="container">
+            <h2 class="section-title">常见问题摘要</h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h4>内容更新频率如何？</h4>
+                    <p>主要根据游戏版本变动或信息需求进行不定期更新，不追求日更，但每次调整都会重新梳理逻辑。</p>
+                </div>
+                <div class="faq-item">
+                    <h4>是否包含用户评价？</h4>
+                    <p>以客观描述和整理为主，不加入主观评分或排行榜，你可以基于自己的经验判断。</p>
+                </div>
+                <div class="faq-item">
+                    <h4>移动端浏览体验如何？</h4>
+                    <p>完全适配手机屏幕，卡片和段落会自动调整宽度，无需缩放或左右滑动。</p>
+                </div>
+                <div class="faq-item">
+                    <h4>有搜索功能吗？</h4>
+                    <p>当前版本以静态内容为主，后续可能会加入关键词索引，方便定位具体主题。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 底部链接区 -->
+    <footer class="bottom-links">
+        <div class="container">
+            <span>相关资源：</span>
+            <a href="https://index-app-aiyouxi.com" class="key-link">爱游戏app</a>
+            <a href="#">内容说明</a>
+            <a href="#">版本记录</a>
+            <span class="bottom-note">本页仅作信息展示，无诱导成分。</span>
+        </div>
+        <div class="container" style="border-top: 1px solid #e0e8f0; margin-top: 1.5rem; padding-top: 1.2rem; justify-content: center;">
+            <span style="color:#48647e; font-size:0.85rem;">—— 以清晰的方式，组织游戏相关内容 ——</span>
+        </div>
+    </footer>
+
+</body>
+</html>
