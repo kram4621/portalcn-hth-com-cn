@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0">
+  <title>爱游戏app | 稳定入口与产品说明</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: #f2f4f6;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      line-height: 1.7;
+      color: #1e2a3a;
+      padding: 0 20px;
+    }
+    .page-wrap {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 48px 0 60px;
+    }
+    /* 主视觉卡片 */
+    .hero-card {
+      background: #ffffff;
+      border-radius: 24px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+      border: 1px solid #e6e9ed;
+      padding: 48px 40px;
+      margin-bottom: 32px;
+      text-align: center;
+    }
+    .hero-card h1 {
+      font-size: 2.4rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      color: #0d1b2a;
+      margin-bottom: 12px;
+    }
+    .hero-card p {
+      max-width: 680px;
+      margin: 0 auto 20px;
+      font-size: 1.1rem;
+      color: #3b4b5e;
+    }
+    .hero-card .badge-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 16px;
+    }
+    .badge {
+      background: #eef1f5;
+      padding: 6px 18px;
+      border-radius: 40px;
+      font-size: 0.9rem;
+      color: #1f2c3c;
+      border: 1px solid #dce1e8;
+    }
+    /* 通用卡片 */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin-bottom: 32px;
+    }
+    .card {
+      background: #ffffff;
+      border-radius: 20px;
+      box-shadow: 0 1px 8px rgba(0,0,0,0.03);
+      border: 1px solid #e6e9ed;
+      padding: 28px 24px;
+      transition: box-shadow 0.2s;
+    }
+    .card:hover {
+      box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+    }
+    .card h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #0d1b2a;
+    }
+    .card h3 span {
+      display: inline-block;
+      width: 28px;
+      height: 28px;
+      background: #d9e1ea;
+      border-radius: 10px;
+      text-align: center;
+      line-height: 28px;
+      font-size: 1rem;
+    }
+    .card p, .card li {
+      font-size: 0.98rem;
+      color: #2c3e50;
+    }
+    .card ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    .card li {
+      position: relative;
+      padding-left: 18px;
+      margin-bottom: 6px;
+    }
+    .card li::before {
+      content: "—";
+      position: absolute;
+      left: 0;
+      color: #7a8b9f;
+    }
+    /* 适合人群卡片 */
+    .audience-flex {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 20px;
+      margin-top: 6px;
+    }
+    .audience-tag {
+      background: #f0f3f7;
+      padding: 4px 16px 4px 14px;
+      border-radius: 30px;
+      font-size: 0.93rem;
+      color: #1e2a3a;
+      border: 1px solid #dce1e8;
+    }
+    /* 段落链接卡片 (自然嵌入) */
+    .link-note-card {
+      background: #ffffff;
+      border-radius: 20px;
+      box-shadow: 0 1px 8px rgba(0,0,0,0.03);
+      border: 1px solid #e6e9ed;
+      padding: 28px 32px;
+      margin-bottom: 32px;
+    }
+    .link-note-card p {
+      font-size: 1rem;
+      color: #2c3e50;
+      margin-bottom: 8px;
+    }
+    .link-note-card p:last-child {
+      margin-bottom: 0;
+    }
+    .link-note-card a {
+      color: #1e5f8e;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px dashed #9bb7d4;
+      transition: border-color 0.15s;
+    }
+    .link-note-card a:hover {
+      border-bottom-color: #1e5f8e;
+    }
+    /* FAQ 摘要卡片 */
+    .faq-summary {
+      background: #ffffff;
+      border-radius: 20px;
+      box-shadow: 0 1px 8px rgba(0,0,0,0.03);
+      border: 1px solid #e6e9ed;
+      padding: 28px 32px;
+      margin-bottom: 24px;
+    }
+    .faq-summary h3 {
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-bottom: 16px;
+      color: #0d1b2a;
+    }
+    .faq-item {
+      margin-bottom: 14px;
+    }
+    .faq-item:last-child {
+      margin-bottom: 0;
+    }
+    .faq-q {
+      font-weight: 500;
+      color: #1e2a3a;
+      margin-bottom: 2px;
+    }
+    .faq-a {
+      color: #4a5b6e;
+      font-size: 0.96rem;
+      padding-left: 12px;
+      border-left: 3px solid #d9e1ea;
+      padding-left: 14px;
+    }
+    /* 页脚 */
+    .footer-note {
+      text-align: center;
+      color: #6d7e91;
+      font-size: 0.85rem;
+      border-top: 1px solid #dce1e8;
+      padding-top: 28px;
+      margin-top: 16px;
+    }
+    /* 响应式 */
+    @media (max-width: 600px) {
+      .hero-card {
+        padding: 32px 20px;
+      }
+      .hero-card h1 {
+        font-size: 1.8rem;
+      }
+      .card {
+        padding: 22px 18px;
+      }
+      .link-note-card, .faq-summary {
+        padding: 22px 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <!-- 主视觉卡片 -->
+  <div class="hero-card">
+    <h1>爱游戏app · 稳定入口说明</h1>
+    <p>面向对游戏内容有持续需求的用户，提供清晰的产品信息与访问路径。以下从用途场景、适配人群、常见疑问等维度进行介绍。</p>
+    <div class="badge-group">
+      <span class="badge">📱 移动端友好</span>
+      <span class="badge">🔄 资源索引</span>
+      <span class="badge">🧩 分类清晰</span>
+      <span class="badge">📋 信息可查</span>
+    </div>
+  </div>
+
+  <!-- 用途卡片 (两列) -->
+  <div class="card-grid">
+    <div class="card">
+      <h3><span>📖</span> 用途与定位</h3>
+      <p>爱游戏app 的核心定位是帮助用户快速定位游戏相关内容。产品本身不提供下载或安装服务，而是通过结构化页面展示游戏分类、背景资料与官方信息源。用户可将其视为了解游戏世界的入门参考。</p>
+    </div>
+    <div class="card">
+      <h3><span>🔍</span> 信息组织方式</h3>
+      <ul>
+        <li>按类型归纳游戏题材与玩法风格</li>
+        <li>提供简明扼要的产品背景说明</li>
+        <li>展示与官方渠道的关联入口</li>
+        <li>定期更新内容以保持信息有效</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 适合人群卡片 -->
+  <div class="card">
+    <h3><span>👥</span> 适合哪些用户</h3>
+    <div class="audience-flex">
+      <span class="audience-tag">游戏爱好者</span>
+      <span class="audience-tag">寻找参考信息的新玩家</span>
+      <span class="audience-tag">对游戏类型感兴趣的浏览者</span>
+      <span class="audience-tag">需要快速了解产品框架的用户</span>
+      <span class="audience-tag">内容编辑与研究者</span>
+    </div>
+    <p style="margin-top: 14px; font-size: 0.96rem; color: #3b4b5e;">不论你是刚开始接触游戏领域，还是希望系统了解某一类作品，爱游戏app 的页面结构都能提供基础但清晰的索引。</p>
+  </div>
+
+  <!-- 自然链接段落 (嵌入 a 标签) -->
+  <div class="link-note-card">
+    <p>作为信息参考站点，<a href="https://beta-aiyouxiapp.com">爱游戏app</a> 的页面内容以游戏介绍和分类整理为主，用户可通过页面内部的导航标识进一步查看细分领域。整个站点设计倾向于低干扰、高可读性，方便快速浏览。</p>
+    <p>对于希望获得更全面视角的访问者，建议直接通过 <a href="https://beta-aiyouxiapp.com">爱游戏app</a> 的主页面进入，查看最新的分类与更新说明。页面未设置强制跳转或弹窗，所有入口均以文字链接形式自然呈现。</p>
+  </div>
+
+  <!-- FAQ 摘要卡片 -->
+  <div class="faq-summary">
+    <h3>常见疑问摘要</h3>
+    <div class="faq-item">
+      <div class="faq-q">问：爱游戏app 是否提供游戏下载？</div>
+      <div class="faq-a">不提供。该站仅作为信息整合与索引页面，不托管任何游戏安装包或客户端。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">问：页面内容多久更新一次？</div>
+      <div class="faq-a">内容维护周期不定，但会跟随游戏行业动态进行补充与修正，确保已收录信息的准确性。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">问：能否在移动设备上正常浏览？</div>
+      <div class="faq-a">可以。页面采用响应式布局，在手机与平板设备上均有良好的阅读体验。</div>
+    </div>
+  </div>
+
+  <!-- 页脚 -->
+  <div class="footer-note">
+    <p>本页仅为产品介绍说明，所有内容仅供参考。<br>© 2025 · 爱游戏app 信息页</p>
+  </div>
+
+</div>
+</body>
+</html>
